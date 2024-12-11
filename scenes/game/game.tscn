@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://do0gv16j1vyv8"]
+
+[ext_resource type="Texture2D" uid="uid://ia5jl4w8cidw" path="res://assets/background/rocks_2.png" id="1_aj1yj"]
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_wrupc"]
+[ext_resource type="PackedScene" uid="uid://csngobh3jc1fg" path="res://scenes/gameOverUi/game_over_ui.tscn" id="2_1gnne"]
+[ext_resource type="PackedScene" uid="uid://d2cvelaxrta00" path="res://scenes/scrollingBg/scrolling_bg.tscn" id="2_pk66a"]
+[ext_resource type="PackedScene" uid="uid://co80fl0pa5e0i" path="res://scenes/plane/Plane.tscn" id="2_ygcgr"]
+[ext_resource type="PackedScene" uid="uid://db8yf24hdb844" path="res://scenes/barrier/barrier.tscn" id="3_3t3p5"]
+[ext_resource type="PackedScene" uid="uid://chdf2sq63wsft" path="res://scenes/hud/hud.tscn" id="3_kekx7"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_wrupc")
+metadata/_edit_horizontal_guides_ = [225.0]
+
+[node name="ScrollingBg" parent="." instance=ExtResource("2_pk66a")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverUi" parent="CanvasLayer" instance=ExtResource("2_1gnne")]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("3_kekx7")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(316, 418)
+texture = ExtResource("1_aj1yj")
+
+[node name="Plane" parent="." instance=ExtResource("2_ygcgr")]
+position = Vector2(96, 467)
+
+[node name="Barrier" parent="." instance=ExtResource("3_3t3p5")]
+position = Vector2(0, -19)
+
+[node name="Barrier2" parent="." instance=ExtResource("3_3t3p5")]
+position = Vector2(-3, 878)
+
+[node name="Spawn" type="Node" parent="."]
+
+[node name="SpawnUpper" type="Marker2D" parent="Spawn"]
+position = Vector2(530, 340)
+
+[node name="SpawnLower" type="Marker2D" parent="Spawn"]
+position = Vector2(530, 540)
+
+[node name="SpawnTimer" type="Timer" parent="Spawn"]
+wait_time = 1.9
+autostart = true
+
+[node name="PipeHolder" type="Node" parent="."]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://caw8p46rqgnef"]
+
+[ext_resource type="Texture2D" uid="uid://dq3atprnrjc1y" path="res://assets/pipes/laser2.png" id="1_5awew"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdyh4"]
+size = Vector2(16, 20.1681)
+
+[sub_resource type="Animation" id="Animation_3162l"]
+resource_name = "Blink"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.3, 0.7, 1.6, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 0.32549, 0.282353), Color(1, 1, 0, 0.368627), Color(1, 1, 0, 1), Color(1, 1, 0, 0.368627), Color(1, 1, 0.32549, 0.282353)]
+}
+
+[sub_resource type="Animation" id="Animation_3ej6b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 0.32549, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6jugu"]
+_data = {
+"Blink": SubResource("Animation_3162l"),
+"RESET": SubResource("Animation_3ej6b")
+}
+
+[node name="Laser" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 0.32549, 1)
+scale = Vector2(1, 8)
+texture = ExtResource("1_5awew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(110, -4.23193e-06)
+scale = Vector2(0.4, 9.52)
+shape = SubResource("RectangleShape2D_fdyh4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6jugu")
+}
+autoplay = "Blink"

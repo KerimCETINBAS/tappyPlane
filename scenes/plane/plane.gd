@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 
 func die() -> void:
 	animatedSprite2D.stop()
-	engine_sound.stop()
+	engine_sound.stop() 
 	set_physics_process(false)
 	SignalManager.on_plane_died.emit()
 

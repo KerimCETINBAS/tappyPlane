@@ -9,6 +9,8 @@ size = Vector2(20, 560)
 size = Vector2(20.8307, 70)
 
 [node name="Pipe" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_0eogu")

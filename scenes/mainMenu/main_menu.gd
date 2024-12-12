@@ -8,4 +8,4 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Fly"):
-		GameManager.load_game_scane()
+		GameManager.load_game_scene()

@@ -46,6 +46,7 @@ _data = {
 }
 
 [node name="Plane" type="CharacterBody2D" groups=["Plane"]]
+collision_layer = 8
 platform_on_leave = 1
 script = ExtResource("1_lfapv")
 

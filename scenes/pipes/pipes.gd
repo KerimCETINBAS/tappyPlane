@@ -5,6 +5,7 @@ extends Node2D
 @onready var lower: Area2D = $Lower
 @onready var laser: Area2D = $Laser
 @onready var score_sound: AudioStreamPlayer = $ScoreSound
+@onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
 func _ready() -> void: 
 	SignalManager.on_plane_died.connect(on_plane_died)
@@ -20,7 +21,8 @@ func _process(delta: float) -> void:
 	# is not emmited for some reason
 	# remove it manuelly
 	if _is_off_screen():
-		queue_free()
+		#queue_free()
+		pass
 
 # delete self if its off the screen
 func _on_screen_exited() -> void:
@@ -29,7 +31,7 @@ func _on_screen_exited() -> void:
 
 # check if pipe off the screen
 func _is_off_screen() -> bool:
-	return position.x < GameManager.OFF_SCREEN_THRESHOLD
+	return visible_on_screen_notifier_2d.global_position.x < get_viewport_rect().position.x
 	
 
 func on_plane_died() -> void:

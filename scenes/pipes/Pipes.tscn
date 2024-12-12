@@ -19,7 +19,7 @@ z_index = -1
 position = Vector2(0, 80)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(33, 0)
+position = Vector2(60, 0)
 
 [node name="ScoreSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_75jet")

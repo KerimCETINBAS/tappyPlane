@@ -44,6 +44,8 @@ _data = {
 }
 
 [node name="Laser" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 0.32549, 1)
@@ -51,7 +53,7 @@ scale = Vector2(1, 8)
 texture = ExtResource("1_5awew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(110, -4.23193e-06)
+position = Vector2(46, -2.71051e-20)
 scale = Vector2(0.4, 9.52)
 shape = SubResource("RectangleShape2D_fdyh4")
 

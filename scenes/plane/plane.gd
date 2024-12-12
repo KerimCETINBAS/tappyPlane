@@ -13,7 +13,7 @@ const power: float = -200.0
 @onready var engine_sound: AudioStreamPlayer2D = $EngineSound
 
 func _ready(): 
-	pass
+	velocity = Vector2(0, power)
 	
 func _process(delta: float) -> void:
 	pass
